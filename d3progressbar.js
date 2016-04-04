@@ -1,9 +1,9 @@
 /**
 * D3 progress bar build using rects, one for the background and the other which transitions width to convey progress. 
 * It is a configurable component, users can define the height, width of each status segment, colorScale, backgroundFill, roundedCorners(rx,ry), and
-* the currentStatus which is the inital status the chart begins on 
+* the currentStatus which is the inital status the bar begins on 
 * The fill of the bar can either be one solid color or a colorScale based on statuses
-* The chart's input is an array of statuses 
+* The bar's input is an array of statuses 
 */
 function progressBar() {
 
@@ -15,7 +15,7 @@ function progressBar() {
         backgroundFill = 'gray',
         currentStatus;
 
-    function chart(selection) {
+    function bar(selection) {
 
         selection.each(function(data) {
 
@@ -52,7 +52,7 @@ function progressBar() {
 
     }
 
-    chart.moveProgressBar = function(state) {
+    bar.moveProgressBar = function(state) {
         d3.select('rect.progress-rect').transition()
             .duration(1000)
             .attr('fill', function() {
@@ -64,61 +64,61 @@ function progressBar() {
             });
     }
 
-    chart.height = function(_) {
+    bar.height = function(_) {
         if (!arguments.length) {
             return height;
         }
         height = _;
-        return chart;
+        return bar;
     };
 
-    chart.segmentWidth = function(_) {
+    bar.segmentWidth = function(_) {
         if (!arguments.length) {
             return segmentWidth;
         }
         segmentWidth = _;
-        return chart;
+        return bar;
     };
 
-    chart.colorScale = function(_) {
+    bar.colorScale = function(_) {
         if (!arguments.length) {
             return colorScale;
         }
         colorScale = _;
-        return chart;
+        return bar;
     };
 
-    chart.roundedCorners = function(_) {
+    bar.roundedCorners = function(_) {
         if (!arguments.length) {
             return roundedCorners;
         }
         roundedCorners = _;
-        return chart;
+        return bar;
     };
 
-    chart.backgroundFill = function(_) {
+    bar.backgroundFill = function(_) {
         if (!arguments.length) {
             return backgroundFill;
         }
         backgroundFill = _;
-        return chart;
+        return bar;
     };
 
-    chart.progressFill = function(_) {
+    bar.progressFill = function(_) {
         if (!arguments.length) {
             return progressFill;
         }
         progressFill = _;
-        return chart;
+        return bar;
     };
 
-    chart.currentStatus = function(_) {
+    bar.currentStatus = function(_) {
         if (!arguments.length) {
             return currentStatus;
         }
         currentStatus = _;
-        return chart;
+        return bar;
     };
 
-    return chart;
+    return bar;
 }
