@@ -38,16 +38,16 @@
 		.domain(states)
 		.range(['yellow', 'orange', 'green']);
 
-	var chart = progressBar()
-					.currentStatus('started')
-					.colorScale(colorScale)
-					.segmentWidth(segmentWidth);
+	var bar = progressBar()
+			.currentStatus('started')
+			.colorScale(colorScale)
+			.segmentWidth(segmentWidth);
 
 	svg.datum(states)
-		.call(chart);
+		.call(bar);
 
 	function moveProgressBar(state){
-		chart.moveProgressBar(state)
+		bar.moveProgressBar(state)
 	};
 
 	</script>
